@@ -27,7 +27,7 @@ const MintingTool = (props) => {
       <Container>
         <Row style={{ marginBottom: "2vh" }}>
           <p>
-            Step 2: After you have logged in, hit this button to mint your "Go
+           Step 2: After you have logged in, hit this button to mint your "Go
             Team" Token and go your{" "}
             <a href='https://wallet.testnet.near.org/'> wallet</a> and see your
             NFT
