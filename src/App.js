@@ -78,13 +78,13 @@ export default function App() {
       <Container style={{ marginTop: "3vh" }}>
         {" "}
         <Row>
-          <Alert>
-            Hello! We are going to mint an NFT and have it appear in your
-            wallet! Sign in, mint your nft and head over to{" "}
+           <Alert>
+            Hello! you are going to mint Your Swollet NFT Certificate and have it appear in your
+            wallet! Sign in, mint your NFT Certificate and head over to{" "}
             <a href='https://wallet.testnet.near.org/'>
               wallet.testnet.near.org
             </a>{" "}
-            to see your new "Go Team" NFT!
+            to see your new Swollet NFT Certificate !
           </Alert>
         </Row>
         <Row>
