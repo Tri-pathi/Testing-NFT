@@ -25,19 +25,19 @@ export default function App() {
     const receivedNFT = async () => {
       console.log(
         await window.contract.check_token({
-          id: `${window.accountId}-go-team-token`,
+          id: `${window.accountId}-Swollet`,
         })
       );
       if (window.accountId !== "") {
         console.log(
           await window.contract.check_token({
-            id: `${window.accountId}-go-team-token`,
+            id: `${window.accountId}-Swollet`,
           })
         );
 
         setuserHasNFT(
           await window.contract.check_token({
-            id: `${window.accountId}-go-team-token`,
+            id: `${window.accountId}-Swollet`,
           })
         );
       }
