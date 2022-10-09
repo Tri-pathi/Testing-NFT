@@ -50325,71 +50325,17 @@ __exportStar(require("./browser-connect"), exports);
 require("error-polyfill");
 
 },{"./key_stores/browser-index":"../node_modules/near-api-js/lib/key_stores/browser-index.js","./common-index":"../node_modules/near-api-js/lib/common-index.js","./browser-connect":"../node_modules/near-api-js/lib/browser-connect.js","error-polyfill":"../node_modules/error-polyfill/index.js"}],"config.js":[function(require,module,exports) {
-const CONTRACT_NAME = "nft-mint-frontend.adarsh_tripathi.testnet";
+const CONTRACT_NAME = "nft-mint-frontend.adarsh_tripathi.near";
 
-function getConfig(env) {
-  switch (env) {
-    case "production":
-    case "mainnet":
-      return {
-        networkId: "mainnet",
-        nodeUrl: "https://rpc.mainnet.near.org",
-        contractName: CONTRACT_NAME,
-        walletUrl: "https://wallet.near.org",
-        helperUrl: "https://helper.mainnet.near.org",
-        explorerUrl: "https://explorer.mainnet.near.org"
-      };
-
-    case "development":
-    case "testnet":
-      return {
-        networkId: "testnet",
-        nodeUrl: "https://rpc.testnet.near.org",
-        contractName: CONTRACT_NAME,
-        walletUrl: "https://wallet.testnet.near.org",
-        helperUrl: "https://helper.testnet.near.org",
-        explorerUrl: "https://explorer.testnet.near.org"
-      };
-
-    case "betanet":
-      return {
-        networkId: "betanet",
-        nodeUrl: "https://rpc.betanet.near.org",
-        contractName: CONTRACT_NAME,
-        walletUrl: "https://wallet.betanet.near.org",
-        helperUrl: "https://helper.betanet.near.org",
-        explorerUrl: "https://explorer.betanet.near.org"
-      };
-
-    case "local":
-      return {
-        networkId: "local",
-        nodeUrl: "http://localhost:3030",
-        keyPath: `${"/home/tubuntu"}/.near/validator_key.json`,
-        walletUrl: "http://localhost:4000/wallet",
-        contractName: CONTRACT_NAME
-      };
-
-    case "test":
-    case "ci":
-      return {
-        networkId: "shared-test",
-        nodeUrl: "https://rpc.ci-testnet.near.org",
-        contractName: CONTRACT_NAME,
-        masterAccount: "test.near"
-      };
-
-    case "ci-betanet":
-      return {
-        networkId: "shared-test-staging",
-        nodeUrl: "https://rpc.ci-betanet.near.org",
-        contractName: CONTRACT_NAME,
-        masterAccount: "test.near"
-      };
-
-    default:
-      throw Error(`Unconfigured environment '${env}'. Can be configured in src/config.js.`);
-  }
+function getConfig() {
+  return {
+    networkId: "mainnet",
+    nodeUrl: "https://rpc.mainnet.near.org",
+    contractName: CONTRACT_NAME,
+    walletUrl: "https://wallet.near.org",
+    helperUrl: "https://helper.mainnet.near.org",
+    explorerUrl: "https://explorer.mainnet.near.org"
+  };
 }
 
 module.exports = getConfig;
@@ -50409,7 +50355,7 @@ var _config = _interopRequireDefault(require("./config"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const nearConfig = (0, _config.default)("development" || "development"); // Initialize contract & set global variables
+const nearConfig = (0, _config.default)(); // Initialize contract & set global variables
 
 async function initContract() {
   // Initialize connection to the NEAR testnet
@@ -70130,7 +70076,7 @@ const MintingTool = props => {
       marginBottom: "2vh"
     }
   }, /*#__PURE__*/_react.default.createElement("p", null, "Step 2: After you have logged in, hit this button to mint your \"NFT Certificate\" Token and go your", " ", /*#__PURE__*/_react.default.createElement("a", {
-    href: "https://wallet.testnet.near.org/"
+    href: "https://wallet.near.org/"
   }, " wallet"), " and see your NFT")), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Row, {
     className: "d-flex justify-content-center"
   }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Button, {
@@ -70151,7 +70097,7 @@ const MintingTool = props => {
       textAlign: "center"
     }
   }, "bruh/sis.... You have an NFT already. You can see it", " ", /*#__PURE__*/_react.default.createElement("a", {
-    href: "https://wallet.testnet.near.org/?tab=collectibles"
+    href: "https://wallet.near.org/?tab=collectibles"
   }, "here!"), ":)")) : null)));
 };
 
@@ -70234,22 +70180,22 @@ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && 
 // assets
 const {
   networkId
-} = (0, _config.default)("development" || "development");
+} = (0, _config.default)();
 
 function App() {
   const [userHasNFT, setuserHasNFT] = (0, _react.useState)(false);
   (0, _react.useEffect)(() => {
     const receivedNFT = async () => {
       console.log(await window.contract.check_token({
-        id: `${window.accountId}-Swollet`
+        id: `${window.accountId}-swollet`
       }));
 
       if (window.accountId !== "") {
         console.log(await window.contract.check_token({
-          id: `${window.accountId}-Swollet`
+          id: `${window.accountId}-swollet`
         }));
         setuserHasNFT(await window.contract.check_token({
-          id: `${window.accountId}-Swollet`
+          id: `${window.accountId}-swollet`
         }));
       }
     };
@@ -70280,8 +70226,8 @@ function App() {
       marginTop: "3vh"
     }
   }, " ", /*#__PURE__*/_react.default.createElement(_reactBootstrap.Row, null, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Alert, null, "Hello! you are going to mint Your Swollet NFT Certificate and have it appear in your wallet! Sign in, mint your NFT Certificate and head over to", " ", /*#__PURE__*/_react.default.createElement("a", {
-    href: "https://wallet.testnet.near.org/"
-  }, "wallet.testnet.near.org"), " ", "to see your new Swollet NFT Certificate !")), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Row, null, /*#__PURE__*/_react.default.createElement(_InfoBubble.default, null)), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Row, {
+    href: "https://wallet.near.org/"
+  }, "wallet.near.org"), " ", "to see your new Swollet NFT Certificate !")), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Row, null, /*#__PURE__*/_react.default.createElement(_InfoBubble.default, null)), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Row, {
     style: {
       marginTop: "3vh"
     }
@@ -70333,7 +70279,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "36159" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "39005" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
